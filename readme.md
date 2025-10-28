@@ -1,4 +1,4 @@
-# yocto-queue2 [![](https://badgen.net/bundlephobia/minzip/yocto-queue)](https://bundlephobia.com/result?p=yocto-queue)
+# yoctoqueue2
 
 > Tiny, efficient queue data structure for JavaScript and TypeScript
 
@@ -8,21 +8,20 @@ Use this package instead of an array when you need to do a lot of `Array#push()`
 
 This implementation keeps references to both the first (`_first`) and last (`_last`) nodes internally to allow **efficient enqueue and dequeue operations** without iterating through the entire queue.
 
-
-It can be used in **CommonJS, ESM, and IIFE** environments. When used as an IIFE, it exposes a global variable named `YoctoQueue2`.
+It can be used in **CommonJS, ESM, and IIFE** environments. When used as an IIFE, it exposes a global variable named `yoctoqueue2`.
 
 ## Install
 
 ```sh
-npm install yocto-queue2
+npm install yoctoqueue2
 ```
-
 
 ## Usage
 
 ### Node / ESM
+
 ```ts
-import Queue from "yocto-queue2";
+import Queue from "yoctoqueue2";
 
 const queue = new Queue<string>();
 
@@ -40,19 +39,20 @@ console.log(queue.dequeue());
 
 console.log(queue.dequeue());
 //=> '🌈'
-````
+```
 
 ### Browser (via script injection)
 
 ```ts
 // Open browser console and run:
 const s = document.createElement("script");
-s.src = "https://cdn.jsdelivr.net/gh/maanimis/yocto-queue2@main/dist/index.global.js";
+s.src =
+  "https://cdn.jsdelivr.net/gh/maanimis/yoctoqueue2@main/dist/index.global.js";
 s.onload = () => {
-  console.log("✅ YoctoQueue2 loaded");
+  console.log("✅ yoctoqueue2 loaded");
 
   // Create a new queue instance
-  const queue = new YoctoQueue2.default();
+  const queue = new yoctoqueue2.default();
 
   queue.enqueue("🦄");
   queue.enqueue("🌈");
