@@ -1,9 +1,9 @@
 {
-  "name": "yocto-queue2",
+  "name": "yoctoqueue2",
   "version": "2.0.0",
   "description": "Tiny queue data structure",
   "license": "MIT",
-  "repository": "maanimis/yocto-queue2",
+  "repository": "maanimis/yoctoqueue2",
   "funding": "https://github.com/sponsors/maanimis",
   "author": {
     "name": "Sindre Sorhus",
