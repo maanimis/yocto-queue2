@@ -10,14 +10,17 @@ This implementation keeps references to both the first (`_first`) and last (`_la
 
 
 It can be used in **CommonJS, ESM, and IIFE** environments. When used as an IIFE, it exposes a global variable named `YoctoQueue2`.
+
 ## Install
 
 ```sh
 npm install yocto-queue2
 ```
 
+
 ## Usage
 
+### Node / ESM
 ```ts
 import Queue from "yocto-queue2";
 
@@ -37,6 +40,36 @@ console.log(queue.dequeue());
 
 console.log(queue.dequeue());
 //=> '🌈'
+````
+
+### Browser (via script injection)
+
+```ts
+// Open browser console and run:
+const s = document.createElement("script");
+s.src = "https://cdn.jsdelivr.net/gh/maanimis/yocto-queue2@main/dist/index.global.js";
+s.onload = () => {
+  console.log("✅ YoctoQueue2 loaded");
+
+  // Create a new queue instance
+  const queue = new YoctoQueue2.default();
+
+  queue.enqueue("🦄");
+  queue.enqueue("🌈");
+
+  console.log(queue.size);
+  //=> 2
+
+  console.log(...queue);
+  //=> '🦄 🌈'
+
+  console.log(queue.dequeue());
+  //=> '🦄'
+
+  console.log(queue.dequeue());
+  //=> '🌈'
+};
+document.head.appendChild(s);
 ```
 
 ## API
